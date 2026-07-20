@@ -13,32 +13,21 @@ import AIChat from '../pages/userPages/AIChat';
 
 const DefaultLayout = () => {
   return (
-    <div style={{ display: "flex", height: "100vh", overflow: "hidden" }}>
-      {/* Sidebar */}
-      <div style={{ flexShrink: 0, height: "100vh" }}>
+    <div className="flex h-screen overflow-hidden bg-[#f1f5f9]">
+      {/* Sidebar - Fixed width */}
+      <div className="flex-shrink-0 h-screen">
         <Sidebar />
       </div>
       
       {/* Main Content Area */}
-      <div style={{ 
-        flex: 1, 
-        display: "flex", 
-        flexDirection: "column",
-        height: "100vh",
-        overflow: "hidden",
-        backgroundColor: "#f7fafb"
-      }}>
-        {/* Header */}
-        <div style={{ flexShrink: 0 }}>
+      <div className="flex-1 flex flex-col h-screen overflow-hidden bg-[#f1f5f9]">
+        {/* Header - Fixed height */}
+        <div className="flex-shrink-0 bg-[#ffffff] border-b border-[#e2e8f0]">
           <Header />
         </div>
         
         {/* Scrollable Content */}
-        <div style={{ 
-          flex: 1,
-          overflowY: "auto",
-          padding: "24px 32px"
-        }}>
+        <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-[#f1f5f9]">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />

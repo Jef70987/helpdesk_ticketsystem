@@ -81,22 +81,29 @@ const CreateTicket = () => {
 
   if (success) {
     return (
-      <div className="bg-white border border-emerald-200 p-8 md:p-12 text-center shadow-sm">
-        <div className="w-16 h-16 bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-[#ffffff] rounded-lg border border-[#d1fae5] p-8 md:p-12 text-center shadow-[0px_1px_3px_rgba(0,0,0,0.05)]">
+        <div className="w-16 h-16 bg-[#d1fae5] flex items-center justify-center mx-auto mb-4 rounded-lg">
+          <svg className="w-8 h-8 text-[#006a61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-gray-900">Ticket Created Successfully</h3>
-        <p className="text-gray-500 mt-2">Redirecting to your ticket...</p>
+        <h3 className="text-[24px] font-semibold leading-[32px] tracking-[-0.01em] font-['Inter'] text-[#000000]">
+          Ticket Created Successfully
+        </h3>
+        <p className="text-[14px] font-normal leading-[20px] font-['Inter'] text-[#45464d] mt-2">
+          Redirecting to your ticket...
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#f8f9ff]">
       <div className="mb-4">
-        <Link to="/user/tickets" className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1">
+        <Link 
+          to="/user/tickets" 
+          className="text-[#000000] hover:text-[#131b2e] text-[14px] font-medium leading-[20px] font-['Inter'] flex items-center gap-1 transition-colors"
+        >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
@@ -104,14 +111,16 @@ const CreateTicket = () => {
         </Link>
       </div>
 
-      <div className="bg-white border border-gray-200 p-6 md:p-8 w-full shadow-sm">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+      <div className="bg-[#ffffff] rounded-lg border border-[#c6c6cd] p-6 md:p-8 w-full shadow-[0px_1px_3px_rgba(0,0,0,0.05)]">
+        <h2 className="text-[28px] font-bold leading-[34px] tracking-[-0.02em] font-['Inter'] text-[#000000] mb-2">
           Create New Ticket
         </h2>
-        <p className="text-gray-500 text-sm mb-6">Fill in the details below and our team will assist you.</p>
+        <p className="text-[#45464d] text-[14px] font-normal leading-[20px] font-['Inter'] mb-6">
+          Fill in the details below and our team will assist you.
+        </p>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm font-medium flex items-center gap-2">
+          <div className="mb-4 p-3 bg-[#fee2e2] border border-[#fecaca] rounded-lg text-[#991b1b] text-[14px] font-medium leading-[20px] font-['Inter'] flex items-center gap-2">
             <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -120,9 +129,10 @@ const CreateTicket = () => {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Title Field */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Title <span className="text-red-500 ml-1">*</span>
+            <label className="block text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#000000] mb-1.5">
+              TITLE <span className="text-[#ba1a1a] ml-1">*</span>
             </label>
             <input
               type="text"
@@ -132,13 +142,14 @@ const CreateTicket = () => {
               placeholder="Brief summary of your issue"
               required
               disabled={loading}
-              className="w-full px-4 py-2.5 border border-gray-300 bg-white text-gray-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50 placeholder-gray-400"
+              className="w-full px-4 py-2.5 border border-[#c6c6cd] rounded-lg bg-[#ffffff] text-[#000000] text-[14px] font-normal leading-[20px] font-['Inter'] focus:outline-none focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20 disabled:opacity-50 placeholder-[#76777d]"
             />
           </div>
 
+          {/* Description Field */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
-              Description <span className="text-red-500 ml-1">*</span>
+            <label className="block text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#000000] mb-1.5">
+              DESCRIPTION <span className="text-[#ba1a1a] ml-1">*</span>
             </label>
             <textarea
               name="description"
@@ -148,14 +159,15 @@ const CreateTicket = () => {
               required
               disabled={loading}
               rows={5}
-              className="w-full px-4 py-2.5 border border-gray-300 bg-white text-gray-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50 resize-y placeholder-gray-400"
+              className="w-full px-4 py-2.5 border border-[#c6c6cd] rounded-lg bg-[#ffffff] text-[#000000] text-[14px] font-normal leading-[20px] font-['Inter'] focus:outline-none focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20 disabled:opacity-50 resize-y placeholder-[#76777d]"
             />
           </div>
 
+          {/* Category & Type Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                Category <span className="text-red-500 ml-1">*</span>
+              <label className="block text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#000000] mb-1.5">
+                CATEGORY <span className="text-[#ba1a1a] ml-1">*</span>
               </label>
               <select
                 name="category"
@@ -163,7 +175,7 @@ const CreateTicket = () => {
                 onChange={handleChange}
                 disabled={loading}
                 required
-                className="w-full px-4 py-2.5 border border-gray-300 bg-white text-gray-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50"
+                className="w-full px-4 py-2.5 border border-[#c6c6cd] rounded-lg bg-[#ffffff] text-[#000000] text-[14px] font-normal leading-[20px] font-['Inter'] focus:outline-none focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20 disabled:opacity-50"
               >
                 <option value="">Select a category...</option>
                 {categories.map((cat) => (
@@ -173,18 +185,22 @@ const CreateTicket = () => {
                 ))}
               </select>
               {!formData.category && (
-                <p className="text-xs text-red-500 mt-1">Category is required</p>
+                <p className="text-[12px] font-medium leading-[16px] font-['Inter'] text-[#ba1a1a] mt-1">
+                  Category is required
+                </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Ticket Type</label>
+              <label className="block text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#000000] mb-1.5">
+                TICKET TYPE
+              </label>
               <select
                 name="ticket_type"
                 value={formData.ticket_type}
                 onChange={handleChange}
                 disabled={loading}
-                className="w-full px-4 py-2.5 border border-gray-300 bg-white text-gray-900 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50"
+                className="w-full px-4 py-2.5 border border-[#c6c6cd] rounded-lg bg-[#ffffff] text-[#000000] text-[14px] font-normal leading-[20px] font-['Inter'] focus:outline-none focus:border-[#000000] focus:ring-2 focus:ring-[#000000]/20 disabled:opacity-50"
               >
                 {ticketTypes.map((type) => (
                   <option key={type.value} value={type.value}>
@@ -195,6 +211,7 @@ const CreateTicket = () => {
             </div>
           </div>
 
+          {/* Urgency Checkbox */}
           <div className="space-y-1">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
@@ -203,24 +220,27 @@ const CreateTicket = () => {
                 checked={formData.urgency}
                 onChange={handleChange}
                 disabled={loading}
-                className="w-4 h-4 border-gray-300 text-blue-600 focus:ring-1 focus:ring-blue-500"
+                className="w-4 h-4 border-[#c6c6cd] rounded text-[#000000] focus:ring-2 focus:ring-[#000000]/20"
               />
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-[14px] font-medium leading-[20px] font-['Inter'] text-[#000000]">
                 This is urgent (my work is completely blocked)
               </span>
             </label>
-            <p className="text-xs text-gray-400 ml-6">Only check this if you cannot continue working.</p>
+            <p className="text-[12px] font-normal leading-[16px] font-['Inter'] text-[#76777d] ml-6">
+              Only check this if you cannot continue working.
+            </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200">
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#c6c6cd]">
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-colors disabled:opacity-50 shadow-sm flex items-center justify-center gap-2"
+              className="flex-1 py-2.5 px-4 bg-[#000000] hover:bg-[#131b2e] text-[#ffffff] font-medium text-[14px] leading-[20px] font-['Inter'] rounded-lg transition-colors disabled:opacity-50 shadow-sm flex items-center justify-center gap-2"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin h-5 w-5 text-[#ffffff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
@@ -231,7 +251,7 @@ const CreateTicket = () => {
               )}
             </button>
             <Link to="/user/tickets" className="flex-1">
-              <button className="w-full py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium text-sm transition-colors border border-gray-300">
+              <button className="w-full py-2.5 px-4 bg-[#f1f5f9] hover:bg-[#e2e8f0] text-[#000000] font-medium text-[14px] leading-[20px] font-['Inter'] rounded-lg transition-colors border border-[#c6c6cd]">
                 Cancel
               </button>
             </Link>

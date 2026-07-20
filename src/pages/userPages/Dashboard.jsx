@@ -46,56 +46,56 @@ const Dashboard = () => {
       label: 'Total Tickets', 
       value: stats.total, 
       icon: (
-        <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
       ),
-      color: 'text-blue-600'
+      color: 'text-[#000000]'
     },
     { 
       label: 'Open', 
       value: stats.open, 
       icon: (
-        <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: 'text-blue-600'
+      color: 'text-[#000000]'
     },
     { 
       label: 'Resolved', 
       value: stats.resolved, 
       icon: (
-        <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 text-[#006a61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: 'text-emerald-600'
+      color: 'text-[#006a61]'
     },
     { 
       label: 'Closed', 
       value: stats.closed, 
       icon: (
-        <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 text-[#76777d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
         </svg>
       ),
-      color: 'text-gray-600'
+      color: 'text-[#76777d]'
     },
   ];
 
   const getStatusColor = (status) => {
     const colors = {
-      'new': 'bg-blue-100 text-blue-800 border-blue-300',
-      'open': 'bg-indigo-100 text-indigo-800 border-indigo-300',
-      'in_progress': 'bg-amber-100 text-amber-800 border-amber-300',
-      'pending_customer': 'bg-purple-100 text-purple-800 border-purple-300',
-      'pending_third_party': 'bg-pink-100 text-pink-800 border-pink-300',
-      'resolved': 'bg-emerald-100 text-emerald-800 border-emerald-300',
-      'closed': 'bg-gray-100 text-gray-700 border-gray-300',
-      'canceled': 'bg-red-100 text-red-800 border-red-300',
+      'new': 'bg-[#dce9ff] text-[#000000] border-[#c6c6cd]',
+      'open': 'bg-[#dce9ff] text-[#000000] border-[#c6c6cd]',
+      'in_progress': 'bg-[#ffedd5] text-[#000000] border-[#c6c6cd]',
+      'pending_customer': 'bg-[#f3e8ff] text-[#000000] border-[#c6c6cd]',
+      'pending_third_party': 'bg-[#fce7f3] text-[#000000] border-[#c6c6cd]',
+      'resolved': 'bg-[#d1fae5] text-[#000000] border-[#c6c6cd]',
+      'closed': 'bg-[#f1f5f9] text-[#000000] border-[#c6c6cd]',
+      'canceled': 'bg-[#fee2e2] text-[#000000] border-[#c6c6cd]',
     };
-    return colors[status] || 'bg-gray-100 text-gray-700 border-gray-300';
+    return colors[status] || 'bg-[#f1f5f9] text-[#000000] border-[#c6c6cd]';
   };
 
   const formatStatusLabel = (status) => {
@@ -115,19 +115,21 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-2 border-[#000000] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="w-full pb-20 md:pb-0">
+    <div className="w-full pb-20 md:pb-0 bg-[#f8f9ff]">
       {/* Header */}
       <div className="mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+        <h2 className="text-[28px] font-bold leading-[34px] tracking-[-0.02em] font-['Inter'] text-[#000000]">
           Welcome back, {userName}
         </h2>
-        <p className="text-gray-500 mt-1">Here's what's happening with your tickets</p>
+        <p className="text-[16px] font-normal leading-[24px] font-['Inter'] text-[#45464d] mt-1">
+          Here's what's happening with your tickets
+        </p>
       </div>
 
       {/* Stats Cards */}
@@ -135,15 +137,19 @@ const Dashboard = () => {
         {statCards.map((stat) => (
           <div
             key={stat.label}
-            className="bg-white p-4 border border-gray-200 border-t-4 border-t-blue-600 shadow-sm hover:shadow-md transition-all duration-300"
+            className="bg-[#ffffff] p-4 rounded-lg border border-[#c6c6cd] shadow-[0px_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0px_4px_6px_rgba(0,0,0,0.07)] transition-all duration-300"
           >
             <div className="flex items-center justify-between">
-              <p className={`text-2xl md:text-3xl font-bold ${stat.color}`}>{stat.value}</p>
-              <div className="p-1.5 bg-gray-50">
+              <p className={`text-[24px] font-bold leading-[32px] font-['Inter'] ${stat.color}`}>
+                {stat.value}
+              </p>
+              <div className="p-1.5 bg-[#f1f5f9] rounded">
                 {stat.icon}
               </div>
             </div>
-            <p className="text-xs text-gray-600 mt-1.5 font-medium uppercase tracking-wide">{stat.label}</p>
+            <p className="text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d] mt-1.5">
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
@@ -152,7 +158,7 @@ const Dashboard = () => {
       <div className="flex flex-wrap gap-3 mb-6">
         <button 
           onClick={handleCreateTicket}
-          className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors shadow-sm flex items-center gap-2"
+          className="px-5 py-2 bg-[#000000] hover:bg-[#131b2e] text-[#ffffff] text-[14px] font-medium leading-[20px] font-['Inter'] rounded-lg transition-colors shadow-sm flex items-center gap-2"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
@@ -160,8 +166,8 @@ const Dashboard = () => {
           Create New Ticket
         </button>
         <Link to="/user/tickets">
-          <button className="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors border border-gray-300 shadow-sm flex items-center gap-2">
-            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="px-5 py-2 bg-[#f1f5f9] hover:bg-[#e2e8f0] text-[#000000] text-[14px] font-medium leading-[20px] font-['Inter'] rounded-lg transition-colors border border-[#c6c6cd] shadow-sm flex items-center gap-2">
+            <svg className="w-4 h-4 text-[#45464d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
             </svg>
             View All Tickets
@@ -170,27 +176,31 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Tickets Table */}
-      <div className="bg-white border border-gray-200 shadow-sm">
-        <div className="px-5 py-3.5 border-b border-gray-200 flex items-center gap-2 bg-gray-50">
-          <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-[#ffffff] rounded-lg border border-[#c6c6cd] shadow-[0px_1px_3px_rgba(0,0,0,0.05)]">
+        <div className="px-5 py-3.5 border-b border-[#c6c6cd] flex items-center gap-2 bg-[#f8f9ff] rounded-t-lg">
+          <svg className="w-4 h-4 text-[#45464d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
           </svg>
-          <h3 className="text-sm font-semibold text-gray-900">Recent Tickets</h3>
+          <h3 className="text-[14px] font-semibold leading-[20px] font-['Inter'] text-[#000000]">
+            Recent Tickets
+          </h3>
         </div>
 
         {recentTickets.length === 0 ? (
           <div className="px-5 py-12 text-center">
             <div className="flex justify-center mb-4">
-              <div className="p-4 bg-gray-50">
-                <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-4 bg-[#f8f9ff] rounded-lg">
+                <svg className="w-12 h-12 text-[#76777d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
             </div>
-            <p className="text-gray-500 text-sm">No tickets created yet</p>
+            <p className="text-[14px] font-normal leading-[20px] font-['Inter'] text-[#45464d]">
+              No tickets created yet
+            </p>
             <button 
               onClick={handleCreateTicket}
-              className="mt-3 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors shadow-sm"
+              className="mt-3 px-5 py-2 bg-[#000000] hover:bg-[#131b2e] text-[#ffffff] text-[14px] font-medium leading-[20px] font-['Inter'] rounded-lg transition-colors shadow-sm"
             >
               Create Your First Ticket
             </button>
@@ -198,29 +208,43 @@ const Dashboard = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-[#f8f9ff] border-b border-[#c6c6cd]">
                 <tr>
-                  <th className="px-5 py-2.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">ID</th>
-                  <th className="px-5 py-2.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
-                  <th className="px-5 py-2.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
-                  <th className="hidden sm:table-cell px-5 py-2.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Created</th>
-                  <th className="px-5 py-2.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Action</th>
+                  <th className="px-5 py-2.5 text-left text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d]">
+                    ID
+                  </th>
+                  <th className="px-5 py-2.5 text-left text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d]">
+                    Title
+                  </th>
+                  <th className="px-5 py-2.5 text-left text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d]">
+                    Status
+                  </th>
+                  <th className="hidden sm:table-cell px-5 py-2.5 text-left text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d]">
+                    Created
+                  </th>
+                  <th className="px-5 py-2.5 text-left text-[12px] font-medium leading-[16px] tracking-[0.05em] font-['JetBrains_Mono'] text-[#45464d]">
+                    Action
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-[#c6c6cd]">
                 {recentTickets.map((ticket) => {
                   const statusKey = ticket.status || 'new';
                   const statusDisplay = ticket.status_label || formatStatusLabel(statusKey);
                   return (
-                    <tr key={ticket.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="px-5 py-2.5 font-medium text-gray-900 text-xs">{ticket.ticket_id}</td>
-                      <td className="px-5 py-2.5 text-gray-700 text-xs truncate max-w-[120px]">{ticket.title}</td>
+                    <tr key={ticket.id} className="hover:bg-[#f8f9ff] transition-colors">
+                      <td className="px-5 py-2.5 font-medium text-[#000000] text-[12px] font-['JetBrains_Mono']">
+                        {ticket.ticket_id}
+                      </td>
+                      <td className="px-5 py-2.5 text-[#000000] text-[14px] font-normal leading-[20px] font-['Inter'] truncate max-w-[120px]">
+                        {ticket.title}
+                      </td>
                       <td className="px-5 py-2.5">
-                        <span className={`inline-flex items-center px-2.5 py-0.5 text-xs font-medium border ${getStatusColor(statusKey)}`}>
+                        <span className={`inline-flex items-center px-2.5 py-0.5 text-[12px] font-medium leading-[16px] font-['JetBrains_Mono'] border rounded ${getStatusColor(statusKey)}`}>
                           {statusDisplay}
                         </span>
                       </td>
-                      <td className="hidden sm:table-cell px-5 py-2.5 text-gray-500 text-xs">
+                      <td className="hidden sm:table-cell px-5 py-2.5 text-[#45464d] text-[14px] font-normal leading-[20px] font-['Inter']">
                         {new Date(ticket.created_at).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
@@ -229,7 +253,7 @@ const Dashboard = () => {
                       </td>
                       <td className="px-5 py-2.5">
                         <Link to={`/user/tickets/${ticket.id}`}>
-                          <button className="px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium transition-colors shadow-sm">
+                          <button className="px-3 py-1 bg-[#000000] hover:bg-[#131b2e] text-[#ffffff] text-[12px] font-medium leading-[16px] font-['Inter'] rounded transition-colors shadow-sm">
                             View
                           </button>
                         </Link>
