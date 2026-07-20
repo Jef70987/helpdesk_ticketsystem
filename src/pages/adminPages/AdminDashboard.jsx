@@ -86,7 +86,6 @@ const AdminDashboard = () => {
       setAgentPerformance(response.agent_performance || []);
       setDepartmentData(response.department_breakdown || []);
     } catch (error) {
-      console.error('Failed to fetch admin data:', error);
       setError('Failed to load dashboard data. Please try again.');
     } finally {
       setLoading(false);
