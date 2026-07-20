@@ -50,20 +50,20 @@ function AdminSidebar({ children }) {
     <>
       {/* Mobile Top Bar */}
       {isMobile && (
-        <div className="fixed top-0 left-0 right-0 bg-black shadow-md z-50 lg:hidden border-b border-gray-800">
+        <div className="fixed top-0 left-0 right-0 bg-[#ffffff] shadow-md z-50 lg:hidden border-b border-[#e2e8f0]">
           <div className="flex items-center justify-between px-4 py-2.5">
             <button 
               onClick={toggleSidebar}
               className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
             >
               <div className="flex flex-col leading-tight">
-                <h1 className="text-white font-bold text-sm leading-tight">HELPDESK</h1>
-                <h2 className="text-gray-400 text-[10px] font-bold leading-tight">ADMIN PANEL</h2>
+                <h1 className="text-[#000000] font-bold text-sm leading-tight font-['Inter']">HELPDESK</h1>
+                <h2 className="text-[#76777d] text-[10px] font-bold leading-tight font-['JetBrains_Mono'] tracking-[0.05em]">ADMIN PANEL</h2>
               </div>
             </button>
             <button 
               onClick={handleLogout}
-              className="text-gray-400 text-xs font-semibold hover:text-white transition-colors"
+              className="text-[#76777d] text-xs font-semibold hover:text-[#000000] transition-colors font-['Inter']"
             >
               Logout
             </button>
@@ -73,7 +73,7 @@ function AdminSidebar({ children }) {
 
       {/* Mobile Bottom Navigation */}
       {isMobile && (
-        <div className="fixed bottom-0 left-0 right-0 bg-black shadow-2xl z-50 lg:hidden border-t border-gray-800">
+        <div className="fixed bottom-0 left-0 right-0 bg-[#ffffff] shadow-2xl z-50 lg:hidden border-t border-[#e2e8f0]">
           <div className="flex items-center h-14 px-2 overflow-x-auto">
             <div className="flex justify-around gap-1 w-full">
               {adminSidebarData.map((val, key) => (
@@ -89,13 +89,13 @@ function AdminSidebar({ children }) {
                   className={`
                     flex flex-col items-center justify-center px-2 py-1 rounded-lg transition-all duration-300 min-w-[56px]
                     ${window.location.pathname === val.link && !val.isLogout
-                      ? 'text-white bg-gray-800' 
-                      : 'text-gray-500 hover:text-white hover:bg-gray-800/50'
+                      ? 'text-[#000000] bg-[#f1f5f9]' 
+                      : 'text-[#76777d] hover:text-[#000000] hover:bg-[#f8f9ff]'
                     }
                   `}
                 >
                   <div className="text-base mb-0.5">{val.icon}</div>
-                  <span className="text-[9px] font-semibold whitespace-nowrap">{val.title}</span>
+                  <span className="text-[9px] font-semibold whitespace-nowrap font-['Inter']">{val.title}</span>
                 </button>
               ))}
             </div>
@@ -112,7 +112,7 @@ function AdminSidebar({ children }) {
       {!isMobile && (
         <button 
           onClick={toggleSidebar}
-          className="fixed top-4 left-4 bg-black hover:bg-gray-900 text-white rounded-lg p-3 shadow-xl transition-all duration-300 hover:scale-105 z-50 border border-gray-700"
+          className="fixed top-4 left-4 bg-[#ffffff] hover:bg-[#f1f5f9] text-[#000000] rounded-lg p-3 shadow-lg transition-all duration-300 hover:scale-105 z-50 border border-[#e2e8f0]"
           aria-label="Toggle sidebar"
         >
           <svg 
@@ -129,7 +129,7 @@ function AdminSidebar({ children }) {
       {/* Sidebar */}
       <div 
         className={`
-          h-screen bg-black shadow-2xl border-r border-gray-800 transition-all duration-500 ease-in-out z-50
+          h-screen bg-[#ffffff] shadow-2xl border-r border-[#e2e8f0] transition-all duration-500 ease-in-out z-50
           fixed lg:relative top-0 left-0
           overflow-hidden flex flex-col
           ${isCollapsed ? 'w-20' : 'w-72'}
@@ -137,22 +137,22 @@ function AdminSidebar({ children }) {
         `}
       >
         {/* Top accent strip */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-700"></div>
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#000000]"></div>
         
         <div className="relative z-10">
           <div className={`
-            flex items-center p-5 border-b border-gray-800
+            flex items-center p-5 border-b border-[#e2e8f0]
             ${isCollapsed ? 'justify-center' : 'justify-between'}
           `}>
             <div className={`flex items-center ${isCollapsed ? 'flex-col' : 'space-x-4'}`}>
               {!isCollapsed ? (
                 <div className="flex flex-col">
-                  <h1 className="text-white font-black text-2xl leading-tight tracking-wider">HELPDESK</h1>
-                  <h2 className="text-gray-400 text-xs font-bold tracking-widest">ADMIN PANEL</h2>
+                  <h1 className="text-[#000000] font-black text-2xl leading-tight tracking-wider font-['Inter']">HELPDESK</h1>
+                  <h2 className="text-[#76777d] text-xs font-bold tracking-[0.05em] font-['JetBrains_Mono']">ADMIN PANEL</h2>
                 </div>
               ) : (
                 <div className="flex flex-col items-center">
-                  <h1 className="text-white font-black text-2xl leading-tight">H</h1>
+                  <h1 className="text-[#000000] font-black text-2xl leading-tight font-['Inter']">H</h1>
                 </div>
               )}
             </div>
@@ -161,8 +161,8 @@ function AdminSidebar({ children }) {
               <button 
                 onClick={toggleSidebar}
                 className={`
-                  bg-gray-800 hover:bg-gray-700 text-white rounded-lg p-2
-                  shadow-lg transition-all duration-300 hover:scale-110 border border-gray-700
+                  bg-[#f1f5f9] hover:bg-[#e2e8f0] text-[#000000] rounded-lg p-2
+                  shadow-sm transition-all duration-300 hover:scale-110 border border-[#e2e8f0]
                   ${isCollapsed ? 'absolute -right-3 top-5' : ''}
                 `}
                 aria-label="Toggle sidebar"
@@ -181,7 +181,7 @@ function AdminSidebar({ children }) {
         </div>
 
         {/* Navigation Items */}
-        <nav className="relative z-10 flex-1 overflow-y-auto py-4 px-3 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent">
+        <nav className="relative z-10 flex-1 overflow-y-auto py-4 px-3 scrollbar-thin scrollbar-thumb-[#e2e8f0] scrollbar-track-transparent">
           <ul className="space-y-1.5">
             {adminSidebarData.map((val, key) => (
               <li key={key}>
@@ -190,8 +190,8 @@ function AdminSidebar({ children }) {
                     flex items-center w-full p-3 rounded-xl cursor-pointer transition-all duration-300 group
                     relative overflow-hidden
                     ${window.location.pathname === val.link && !val.isLogout 
-                      ? 'bg-gray-800 shadow-inner' 
-                      : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
+                      ? 'bg-[#f1f5f9] shadow-sm' 
+                      : 'text-[#76777d] hover:bg-[#f8f9ff] hover:text-[#000000]'
                     }
                     ${isCollapsed ? 'justify-center' : 'justify-start'}
                   `}
@@ -207,7 +207,7 @@ function AdminSidebar({ children }) {
                 >
                   {/* Left Indicator */}
                   {window.location.pathname === val.link && !val.isLogout && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-white rounded-r"></div>
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-[#000000] rounded-r"></div>
                   )}
 
                   <div className="flex-shrink-0 transition-all duration-300">
@@ -217,12 +217,12 @@ function AdminSidebar({ children }) {
                   </div>
 
                   {!isCollapsed && (
-                    <span className="ml-3 font-bold whitespace-nowrap text-white">{val.title}</span>
+                    <span className="ml-3 font-bold whitespace-nowrap text-[#000000] font-['Inter']">{val.title}</span>
                   )}
 
                   {!isCollapsed && val.subNav && (
                     <svg 
-                      className={`w-4 h-4 ml-auto transition-all duration-300 text-gray-500 ${openDropdown === key ? 'rotate-180 text-white' : ''}`}
+                      className={`w-4 h-4 ml-auto transition-all duration-300 text-[#76777d] ${openDropdown === key ? 'rotate-180 text-[#000000]' : ''}`}
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -240,8 +240,8 @@ function AdminSidebar({ children }) {
                           className={`
                             flex items-center p-2.5 rounded-lg cursor-pointer transition-all duration-300
                             ${window.location.pathname === subVal.link 
-                              ? 'bg-gray-800 text-white' 
-                              : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                              ? 'bg-[#f1f5f9] text-[#000000]' 
+                              : 'text-[#76777d] hover:text-[#000000] hover:bg-[#f8f9ff]'
                             }
                           `}
                           onClick={(e) => {
@@ -249,8 +249,8 @@ function AdminSidebar({ children }) {
                             handleNavigation(subVal.link);
                           }}
                         >
-                          <div className="text-base text-gray-400">{subVal.icon}</div>
-                          <span className="ml-2 text-sm font-semibold text-white">{subVal.title}</span>
+                          <div className="text-base text-[#76777d]">{subVal.icon}</div>
+                          <span className="ml-2 text-sm font-semibold text-[#000000] font-['Inter']">{subVal.title}</span>
                         </div>
                       </li>
                     ))}
@@ -263,18 +263,18 @@ function AdminSidebar({ children }) {
 
         {/* Footer */}
         <div className={`
-          relative z-10 border-t border-gray-800 p-4 bg-black
+          relative z-10 border-t border-[#e2e8f0] p-4 bg-[#ffffff]
           ${isCollapsed ? 'text-center' : ''}
         `}>
-          <div className={`transition-all duration-300 text-white ${isCollapsed ? 'text-xs' : 'text-sm'}`}>
+          <div className={`transition-all duration-300 text-[#000000] ${isCollapsed ? 'text-xs' : 'text-sm'}`}>
             {!isCollapsed ? (
               <div className="space-y-1">
-                <p className="font-bold text-gray-400">© {new Date().getFullYear()}</p>
-                <p className="text-xs text-gray-500 font-semibold">Helpdesk Admin Panel</p>
+                <p className="font-bold text-[#76777d] font-['Inter']">© {new Date().getFullYear()}</p>
+                <p className="text-xs text-[#76777d] font-semibold font-['JetBrains_Mono'] tracking-[0.05em]">Helpdesk Admin Panel</p>
               </div>
             ) : (
               <div className="flex flex-col items-center">
-                <span className="text-xs font-bold text-gray-500">©</span>
+                <span className="text-xs font-bold text-[#76777d]">©</span>
               </div>
             )}
           </div>
@@ -289,11 +289,11 @@ function AdminSidebar({ children }) {
           background: transparent;
         }
         .scrollbar-thin::-webkit-scrollbar-thumb {
-          background: rgba(75, 85, 99, 0.3);
+          background: rgba(226, 232, 240, 0.5);
           border-radius: 20px;
         }
         .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-          background: rgba(75, 85, 99, 0.5);
+          background: rgba(226, 232, 240, 0.8);
         }
 
         .animate-slideDown {

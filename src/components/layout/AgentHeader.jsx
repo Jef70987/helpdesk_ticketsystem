@@ -20,15 +20,21 @@ const AgentHeader = () => {
     return 'Evening';
   };
 
+  const userInitial = user?.full_name 
+    ? user.full_name.charAt(0).toUpperCase() 
+    : user?.username 
+      ? user.username.charAt(0).toUpperCase() 
+      : 'U';
+
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 md:px-6 shadow-sm">
+    <header className="h-16 bg-[#ffffff] border-b border-[#e2e8f0] flex items-center justify-between px-4 md:px-6 shadow-sm">
       {/* Left - Greeting */}
       <div className="flex items-center gap-3">
-        <h2 className="text-sm md:text-base font-semibold text-gray-700">
+        <h2 className="text-[14px] md:text-[16px] font-semibold leading-[20px] font-['Inter'] text-[#000000]">
           Good {getGreeting()}
         </h2>
-        <span className="hidden sm:inline-block w-px h-5 bg-gray-300"></span>
-        <span className="text-xs md:text-sm font-medium text-blue-600">
+        <span className="hidden sm:inline-block w-px h-5 bg-[#e2e8f0]"></span>
+        <span className="text-[12px] md:text-[14px] font-medium leading-[20px] font-['Inter'] text-[#000000]">
           {user?.full_name || user?.username || 'User'}
         </span>
       </div>
@@ -36,18 +42,18 @@ const AgentHeader = () => {
       {/* Right - Time & User */}
       <div className="flex items-center gap-4">
         <div className="text-right">
-          <p className="text-xs md:text-sm font-medium text-gray-700">
+          <p className="text-[12px] md:text-[14px] font-medium leading-[20px] font-['Inter'] text-[#000000]">
             {formatTime(currentTime)}
           </p>
-          <p className="text-[10px] md:text-xs font-medium text-gray-400">
+          <p className="text-[10px] md:text-[12px] font-medium leading-[16px] font-['JetBrains_Mono'] tracking-[0.05em] text-[#76777d]">
             {formatDate(currentTime)}
           </p>
         </div>
-        <div className="w-px h-8 bg-gray-200"></div>
+        <div className="w-px h-8 bg-[#e2e8f0]"></div>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-            <span className="text-sm font-semibold text-blue-600">
-              {user?.full_name ? user.full_name.charAt(0).toUpperCase() : 'U'}
+          <div className="w-8 h-8 rounded-full bg-[#f1f5f9] flex items-center justify-center border border-[#e2e8f0]">
+            <span className="text-[14px] font-semibold leading-[20px] font-['Inter'] text-[#000000]">
+              {userInitial}
             </span>
           </div>
         </div>
